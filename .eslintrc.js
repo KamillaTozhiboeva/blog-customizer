@@ -26,7 +26,7 @@ module.exports = {
 		'react/jsx-uses-react': 'off',
 		'react/react-in-jsx-scope': 'off',
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
-		'react-hooks/exhaustive-deps': 'off',
+		'react-hooks/exhaustive-deps': 'warn',
 		'import/no-named-as-default': 'off',
 		'@typescript-eslint/no-empty-function': 'off',
 	},

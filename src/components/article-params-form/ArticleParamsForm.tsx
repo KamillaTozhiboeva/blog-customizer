@@ -15,7 +15,7 @@ import {
 	defaultArticleState,
 	fontFamilyOptions,
 	fontSizeOptions,
-	fontColors,
+	fontColors,  
 	backgroundColors,
 	contentWidthArr,
 } from '../../constants/articleProps';
@@ -33,7 +33,7 @@ export const ArticleParamsForm = ({
 	onApply,
 }: ArticleParamsFormProps) => {
 	// Состояние открытия/закрытия сайдбара
-	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
 
 	// Локальное состояние формы ("черновик" настроек)
 	const [formState, setFormState] = useState<ArticleStateType>(currentSettings);
@@ -41,27 +41,19 @@ export const ArticleParamsForm = ({
 	// Реф для отслеживания кликов вне формы
 	const formRef = useRef<HTMLDivElement>(null);
 
-	// Сброс не примененных локальных изменений при закрытии формы
-	// (Если закрыли без сохранения, черновик возвращается к реально примененным currentSettings)
-	useEffect(() => {
-		if (!isOpen) {
-			setFormState(currentSettings);
-		}
-	}, [isOpen, currentSettings]);
-
 	// Управление слушателями событий (клик вне формы и Escape)
 	useEffect(() => {
-		if (!isOpen) return;
+		if (!isFormOpen) return;
 
 		const handleClickOutside = (event: MouseEvent) => {
 			if (formRef.current && !formRef.current.contains(event.target as Node)) {
-				setIsOpen(false);
+				setIsFormOpen(false);
 			}
 		};
 
 		const handleKeyDown = (event: KeyboardEvent) => {
 			if (event.key === 'Escape') {
-				setIsOpen(false);
+				setIsFormOpen(false);
 			}
 		};
 
@@ -74,35 +66,35 @@ export const ArticleParamsForm = ({
 			document.removeEventListener('mousedown', handleClickOutside);
 			document.removeEventListener('keydown', handleKeyDown);
 		};
-	}, [isOpen]);
+	}, [isFormOpen]);
 
 	// Переключение состояния открытия сайдбара
 	const handleToggleForm = () => {
-		setIsOpen((prev: boolean) => !prev);
+		setIsFormOpen((prev: boolean) => !prev);
 	};
 
 	// Обработка отправки формы (Применить)
 	const handleSubmit = (event: SyntheticEvent) => {
 		event.preventDefault();
 		onApply(formState); // Передаем локальный черновик в глобальный стейт App
-		setIsOpen(false); // Закрываем сайдбар
+		setIsFormOpen(false); // Закрываем сайдбар
 	};
 
 	// Обработка сброса формы (Сбросить)
 	const handleReset = (event: SyntheticEvent) => {
 		event.preventDefault();
 		onApply(defaultArticleState); // Сбрасываем глобальный стейт App к дефолтному
-		setIsOpen(false); // Закрываем сайдбар
+		setIsFormOpen(false); // Закрываем сайдбар
 	};
 
 	return (
 		<div ref={formRef}>
 			{/* Кнопка-стрелка позиционируется независимо и всегда видна на экране */}
-			<ArrowButton isOpen={isOpen} onClick={handleToggleForm} />
+			<ArrowButton isOpen={isFormOpen} onClick={handleToggleForm} />
 
 			{/* Сайдбар, который плавно выезжает благодаря классам .container и .container_open */}
 			<aside
-				className={clsx(styles.container, isOpen && styles.container_open)}>
+				className={clsx(styles.container, isFormOpen && styles.container_open)}>
 				<form
 					className={styles.form}
 					onSubmit={handleSubmit}
