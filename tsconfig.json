@@ -1,8 +1,9 @@
 {
 	"compilerOptions": {
-		"target": "ES5" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
+		"ignoreDeprecations": "5.0" /* Suppress reporting of deprecated APIs. */,
+		"target": "es2015" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
 		"module": "ESNext" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
-		"moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */ /* Type declaration files to be included in compilation. */,
+		"moduleResolution": "bundler" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */ /* Type declaration files to be included in compilation. */,
 		"lib": [
 			"DOM",
 			"DOM.Iterable",
@@ -19,12 +20,12 @@
 		"allowJs": true /* Allow javascript files to be compiled. Useful when migrating JS to TS */,
 		// "checkJs": true /* Report errors in .js files. Works in tandem with allowJs. */,
 		"plugins": [{ "name": "typescript-plugin-css-modules" }],
-		"baseUrl": "./",
+		//"baseUrl": "./",
 		// Важно держать конфиг элиасов тут в соответствии с конфигом элиасов в вебпаке (webpack.common.js - resolve.alias) и с конфигом сторибука (.storybook/main.ts - webpackFinal)
 		"paths": {
-			"src/*": ["src/*"],
-			"fonts/*": ["src/fonts/*"],
-			"components/*": ["src/components/*"]
+			"src/*": ["./src/*"],
+			"fonts/*": ["./src/fonts/*"],
+			"components/*": ["./src/components/*"]
 		}
 	},
 	"outDir": "./dist/",

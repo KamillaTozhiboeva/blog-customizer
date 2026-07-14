@@ -9,19 +9,13 @@ module.exports = {
 		react: {
 			version: 'detect',
 		},
+		"import/resolver": {
+			typescript: {
+				project: "tsconfig.json",
+			}
+		}
 	},
-	extends: [
-		'plugin:@typescript-eslint/recommended',
-		'plugin:prettier/recommended',
-		'prettier',
-		'plugin:react/recommended',
-		'plugin:react-hooks/recommended',
-		'plugin:import/errors',
-		'plugin:import/warnings',
-		'plugin:import/typescript',
-		'plugin:jsx-a11y/recommended',
-		'plugin:eslint-comments/recommended',
-	],
+	extends: ['plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended', 'prettier', 'plugin:react/recommended', 'plugin:react-hooks/recommended', 'plugin:import/errors', 'plugin:import/warnings', 'plugin:import/typescript', 'plugin:eslint-comments/recommended', 'plugin:storybook/recommended'],
 	rules: {
 		semi: [2, 'always'],
 		quotes: [2, 'single', { avoidEscape: true }],
@@ -32,5 +26,8 @@ module.exports = {
 		'react/jsx-uses-react': 'off',
 		'react/react-in-jsx-scope': 'off',
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
+		'react-hooks/exhaustive-deps': 'warn',
+		'import/no-named-as-default': 'off',
+		'@typescript-eslint/no-empty-function': 'off',
 	},
 };
