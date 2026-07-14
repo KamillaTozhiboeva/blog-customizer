@@ -10,7 +10,7 @@ import {
 	defaultArticleState,
 } from 'src/constants/articleProps';
 
-import styles from './App.module.scss';
+import styles from './app.module.scss';
 
 export const App = () => {
 	// Глобальное состояние примененных настроек статьи
