@@ -5,13 +5,17 @@ import { Article } from '../article/Article';
 import { ArticleParamsForm } from '../article-params-form/ArticleParamsForm';
 
 // Импорт типов и дефолтного состояния
-import { ArticleStateType, defaultArticleState } from 'src/constants/articleProps';
+import {
+	ArticleStateType,
+	defaultArticleState,
+} from 'src/constants/articleProps';
 
 import styles from './App.module.scss';
 
 export const App = () => {
 	// Глобальное состояние примененных настроек статьи
-	const [currentSettings, setCurrentSettings] = useState<ArticleStateType>(defaultArticleState);
+	const [currentSettings, setCurrentSettings] =
+		useState<ArticleStateType>(defaultArticleState);
 
 	// Переводим объект настроек в CSS-переменные
 	const appStyles = {

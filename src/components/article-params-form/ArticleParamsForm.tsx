@@ -28,13 +28,16 @@ interface ArticleParamsFormProps {
 	onApply: (settings: ArticleStateType) => void;
 }
 
-export const ArticleParamsForm = ({ currentSettings, onApply }: ArticleParamsFormProps) => {
+export const ArticleParamsForm = ({
+	currentSettings,
+	onApply,
+}: ArticleParamsFormProps) => {
 	// Состояние открытия/закрытия сайдбара
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	// Локальное состояние формы ("черновик" настроек)
 	const [formState, setFormState] = useState<ArticleStateType>(currentSettings);
-	
+
 	// Реф для отслеживания кликов вне формы
 	const formRef = useRef<HTMLDivElement>(null);
 
@@ -96,11 +99,14 @@ export const ArticleParamsForm = ({ currentSettings, onApply }: ArticleParamsFor
 		<div ref={formRef}>
 			{/* Кнопка-стрелка позиционируется независимо и всегда видна на экране */}
 			<ArrowButton isOpen={isOpen} onClick={handleToggleForm} />
-			
+
 			{/* Сайдбар, который плавно выезжает благодаря классам .container и .container_open */}
 			<aside
 				className={clsx(styles.container, isOpen && styles.container_open)}>
-				<form className={styles.form} onSubmit={handleSubmit} onReset={handleReset}>
+				<form
+					className={styles.form}
+					onSubmit={handleSubmit}
+					onReset={handleReset}>
 					<h2 className={styles.title}>Задайте параметры</h2>
 
 					{/* 1. Селект для выбора шрифта */}
