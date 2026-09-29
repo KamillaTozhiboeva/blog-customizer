@@ -29,7 +29,6 @@ export const ArticleParamsForm = ({
 	currentSettings,
 	onApply,
 }: ArticleParamsFormProps) => {
-
 	const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
 
 	const [formState, setFormState] = useState<ArticleStateType>(currentSettings);
@@ -66,7 +65,7 @@ export const ArticleParamsForm = ({
 
 	const handleSubmit = (event: SyntheticEvent) => {
 		event.preventDefault();
-		onApply(formState); 
+		onApply(formState);
 		setIsFormOpen(false);
 	};
 
@@ -77,7 +76,6 @@ export const ArticleParamsForm = ({
 	};
 	return (
 		<div ref={formRef}>
-
 			<ArrowButton isOpen={isFormOpen} onClick={handleToggleForm} />
 
 			<aside
@@ -88,7 +86,6 @@ export const ArticleParamsForm = ({
 					onReset={handleReset}>
 					<h2 className={styles.title}>Задайте параметры</h2>
 
-
 					<Select
 						selected={formState.fontFamilyOption}
 						options={fontFamilyOptions}
@@ -97,7 +94,6 @@ export const ArticleParamsForm = ({
 						}
 						title='Шрифт'
 					/>
-
 
 					<RadioGroup
 						name='fontSize'
@@ -109,7 +105,6 @@ export const ArticleParamsForm = ({
 						title='Размер шрифта'
 					/>
 
-
 					<Select
 						selected={formState.fontColor}
 						options={fontColors}
@@ -119,9 +114,7 @@ export const ArticleParamsForm = ({
 						title='Цвет шрифта'
 					/>
 
-
 					<Separator />
-
 
 					<Select
 						selected={formState.backgroundColor}
@@ -131,7 +124,6 @@ export const ArticleParamsForm = ({
 						}
 						title='Цвет фона'
 					/>
-
 
 					<Select
 						selected={formState.contentWidth}
