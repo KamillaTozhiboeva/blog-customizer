@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 
-// Сообщаем вебпаку, что этот файл использует это изображение.
 import plane from 'src/images/plane.png';
 import { Text } from 'src/ui/text';
 

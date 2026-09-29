@@ -21,8 +21,6 @@ export const useEnterSubmit = ({ onChange, option }: UseEnterSubmit) => {
 		};
 
 		optionHtml.addEventListener('keydown', handleEnterKeyDown);
-
-		// не забываем удалять листенеры, при размонтировании компонента
 		return () => {
 			optionHtml.removeEventListener('keydown', handleEnterKeyDown);
 		};

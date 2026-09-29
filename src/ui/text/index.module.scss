@@ -87,15 +87,11 @@
 	font-style: italic;
 }
 
-// для динамических типографий, используем константы, которые будут меняться
-
 .dynamic {
 	color: var(--font-color, #000000);
 	font-size: var(--font-size, 18px);
 	font-family: var(--font-family, 'Open Sans');
 }
-
-// для заголовка и подзаголовка рамер шрифта одинаковый, меняется только цвет и семейство шрифтов
 
 .dynamicLite {
 	color: var(--font-color, #000000);

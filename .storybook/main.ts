@@ -4,12 +4,12 @@ const path = require('path');
 const config: StorybookConfig = {
 	stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 	addons: [
-        '@storybook/addon-links',
-        '@storybook/addon-essentials',
-        '@storybook/addon-onboarding',
-        '@storybook/addon-interactions',
-        '@storybook/addon-styling-webpack',
-        {
+		'@storybook/addon-links',
+		'@storybook/addon-essentials',
+		'@storybook/addon-onboarding',
+		'@storybook/addon-interactions',
+		'@storybook/addon-styling-webpack',
+		{
 			name: '@storybook/addon-styling-webpack',
 
 			options: {
@@ -22,7 +22,6 @@ const config: StorybookConfig = {
 							{
 								loader: require.resolve('css-loader'),
 								options: {
-									// Want to add more CSS Modules options? Read more here: https://github.com/webpack-contrib/css-loader#modules
 									modules: {
 										auto: true,
 									},
@@ -38,7 +37,6 @@ const config: StorybookConfig = {
 							{
 								loader: require.resolve('css-loader'),
 								options: {
-									// Want to add more CSS Modules options? Read more here: https://github.com/webpack-contrib/css-loader#modules
 									modules: {
 										auto: true,
 									},
@@ -49,7 +47,6 @@ const config: StorybookConfig = {
 							{
 								loader: require.resolve('sass-loader'),
 								options: {
-									// Want to add more Sass options? Read more here: https://webpack.js.org/loaders/sass-loader/#options
 									implementation: require.resolve('sass'),
 									sourceMap: true,
 									sassOptions: {},
@@ -60,8 +57,8 @@ const config: StorybookConfig = {
 				],
 			},
 		},
-        '@storybook/addon-webpack5-compiler-swc'
-    ],
+		'@storybook/addon-webpack5-compiler-swc',
+	],
 	webpackFinal: async (config) => {
 		if (config?.resolve?.alias) {
 			config.resolve.alias = {
