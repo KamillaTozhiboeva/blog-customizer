@@ -15,7 +15,7 @@ import {
 	defaultArticleState,
 	fontFamilyOptions,
 	fontSizeOptions,
-	fontColors,  
+	fontColors,
 	backgroundColors,
 	contentWidthArr,
 } from '../../constants/articleProps';
